@@ -1,0 +1,135 @@
+
+<html>
+    <head>
+        <title>calculator</title>
+        <style>
+        body{
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                 align-items: center;
+                 
+                       
+         }
+        .calculator{
+            border: 4px solid black;
+            background-color:grey;
+            padding: 20px;
+            border-radius: 20px;
+        
+            
+        }
+        #inputText{
+            font-weight: bold;
+            width: 240px;
+            height: 50px;
+            padding:20px;
+            margin: 5px;
+            border: 2px solid black;
+            background:transparent;
+            text-align: right;
+            font-size: 25px;
+            border-radius: 16px;
+            background-color: white;
+        }
+
+
+        button{border: none;
+            width: 40px;
+            height: 40px;
+            margin: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            background: white;;
+
+        }
+
+        #demo {background-color:orangered;}
+        #equal{background-color:orange;}
+        #demo1{background-color: cornflowerblue;}
+        #demo2{background-color: cornflowerblue;}
+        #demo3{background-color: cornflowerblue;}
+        #demo4{background-color: cornflowerblue;}
+        
+
+
+            
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="calculator">
+                
+                   <div> <input type="text"  id="inputText" placeholder="0"></div>
+                   <div>
+
+                        <button onclick="handleValue(00)">00</button>
+                        <button onclick="handleValue(0)">0</button>
+
+
+                        
+                        <button onclick="handleValue('%')">%</button>
+                        <button id="demo1" onclick="handleValue('/')">/</button>
+                    </div>
+
+                    <div>
+                        <button onclick="handleValue(7)">7</button>
+                        <button onclick=" handleValue(8)" >8 </button>
+                        <button onclick="handleValue(9)">9</button>
+                        <button id="demo2" onclick="handleValue('*')">*</butto>
+                    </div>
+
+                    <div>
+                        <button onclick="handleValue(4)">4</button>
+                        <button onclick="handleValue(5)">5</button>
+                        <button onclick="handleValue(6)">6</button>
+                        <button id="demo3" onclick="handleValue('-')">-</button>
+                    </div>
+
+                    <div>
+                        <button onclick="handleValue(1)">1</button>
+                        <button onclick="handleValue('2')">2</button>
+                        <button onclick="handleValue('3')">3</button>
+                        <button id="demo4" onclick="handleValue('+')">+</button>
+                    </div>
+
+                    <div> 
+                        <button onclick="handleValue('.')">.</button>
+                        <button  id="demo" onclick="handleDelet()">DEL</button>
+                        <button id="demo" onclick="handlCancle()">AC</button>
+                        
+                        
+                        <button id="equal"onclick="handleResult('=')">Ans.</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </body>
+
+
+    <script>
+        let inputText=document.getElementById("inputText")
+        let button=document.querySelectorAll("buttons")
+        function handleValue(num){
+            inputText.value+=num
+            console.log('button $(num) is clicked',num)
+        }
+
+        function handleResult(){
+            inputText.value=eval(inputText.value)
+            console.log('button is clicked')
+        }
+
+        function handlCancle(){
+            inputText.value=""
+            console.log('button is clicked')
+        }
+
+        function handleDelet(){
+            inputText.value=inputText.value.toString().slice(0,-1)
+            console.log('button is clicked')
+        }
+        </script>
+</html>
